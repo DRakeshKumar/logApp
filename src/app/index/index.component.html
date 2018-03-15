@@ -1,0 +1,360 @@
+
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <script src="script.js"></script>
+  <title>CSS MenuMaker</title>
+
+
+<div id='cssmenu'>
+  <ul class="tabs-menu">
+    <li><img src="../../assets/e-images/melogo.png" style="height:100px"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li class='active'><a href='#tab-1'>Home</a></li>
+    <li><a href='#tab-2'>Products</a></li>
+    <li><a href='#tab-3'>Enquiry</a></li>
+    <li><a href='#tab-4'>Contact</a></li>
+    <li><a href='#tab-5'>Register</a></li>
+    <li><a href='#tab-6'>LogIn</a></li>
+  </ul>
+</div>
+
+      <div class="tab">
+        <div id="tab-1" class="tab-content">
+          <b><u>Listed Logistics:</u></b>
+          <ul *ngFor="let user of listedOwner; let i = index;">
+            <li style="color: darkcyan">{{i+1}} | {{user.movers_company}}</li>
+
+          </ul>
+
+        </div>
+        <div id="tab-2" class="tab-content">
+
+            <!--<div class="container">
+              <div class="board">
+                &lt;!&ndash; Navigation Area (Circular Tabs) &ndash;&gt;
+                <msw-navbar></msw-navbar>
+                &lt;!&ndash; End Navigation Area (Circular Tabs) &ndash;&gt;
+
+                &lt;!&ndash; Content Area &ndash;&gt;
+                <div class="tab">
+                  &lt;!&ndash; Routed view  &ndash;&gt;
+                  <router-outlet></router-outlet>
+                </div>
+                &lt;!&ndash; End Content Area &ndash;&gt;
+              </div>
+
+              &lt;!&ndash; For Debugging: show our formData as it is being typed &ndash;&gt;
+            </div>-->
+        </div>
+        <div id="tab-3" class="tab-content">
+          <form [formGroup]="enquiry_Form">
+            <ul class="form-style-1">
+              <li><label>Full Name <span class="required">*</span></label>
+                <input type="text" name="first_name" formControlName="first_name"  class="field-divided" placeholder="First" />&nbsp;<input type="text" name="last_name" formControlName="last_name" class="field-divided" placeholder="Last" /></li>
+              <li>
+                <label>Email</label>
+                <input type="email" name="email" formControlName="email" class="field-long" />
+              </li>
+              <li>
+                <label>Mobile <span class="required">*</span></label>
+                <input type="mobile" formControlName="mobile" name="field4" class="field-long" />
+              </li>
+              <li>
+                <label>From<span class="required">*</span></label>
+                <select name="from_name" formControlName="from_name" class="field-select">
+                  <option value="Pune">Pune</option>
+                  <option value="Bhubaneswar">Bhubaneswar</option>
+                  <option value="Kolkatta">Kolkatta</option>
+                </select>
+              </li>
+              <li>
+                <label>To<span class="required">*</span></label>
+                <select name="to_name" formControlName="to_name" class="field-select">
+                  <option value="Pune">Pune</option>
+                  <option value="Bhubaneswar">Bhubaneswar</option>
+                  <option value="Kolkatta">Kolkatta</option>
+                </select>
+              </li>
+
+              <li>
+                <input type="submit" value="Submit"  (click)="enquiry_data()"/>
+              </li>
+            </ul>
+          </form>
+        </div>
+        <div id="tab-4" class="tab-content">
+          <div class="container">
+            <div class="stepwizard">
+              <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                  <p><small>Name Details</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                  <p><small>Personal Details</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                  <p><small>Destination Details</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                  <p><small>Optional Details</small></p>
+                </div>
+              </div>
+            </div>
+
+            <form role="form" [formGroup]="enquiry_Form">
+              <div class="panel panel-primary setup-content" id="step-1">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Name Details</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input maxlength="100" type="text" name="first_name" formControlName="first_name" required="required" class="form-control" placeholder="Enter First Name" />
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input maxlength="100" type="text" name="last_name" formControlName="last_name" required="required" class="form-control" placeholder="Enter Last Name" />
+                  </div>
+                  <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                </div>
+              </div>
+
+              <div class="panel panel-primary setup-content" id="step-2">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Personal Details</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input type="email" name="email" formControlName="email" required="required" class="form-control"  />
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Mobile</label>
+                    <input type="mobile" formControlName="mobile" required="required" class="form-control"  />
+                  </div>
+                  <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                </div>
+              </div>
+
+              <div class="panel panel-primary setup-content" id="step-3">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Destination Details</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="control-label">From</label>
+                    <select name="from_name" formControlName="from_name" class="form-control">
+                      <option value="Pune">Pune</option>
+                      <option value="Bhubaneswar">Bhubaneswar</option>
+                      <option value="Kolkatta">Kolkatta</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">To</label>
+                    <select name="to_name" formControlName="to_name" class="form-control">
+                      <option value="Pune">Pune</option>
+                      <option value="Bhubaneswar">Bhubaneswar</option>
+                      <option value="Kolkatta">Kolkatta</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Date</label>
+                    <input type="date" formControlName="pick_up_date" required="required" class="form-control"  />
+                  </div>
+                  <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                </div>
+              </div>
+
+              <div class="panel panel-primary setup-content" id="step-4">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Optional Details</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="control-label">Check Your Necessary Belongings</label><br>
+                    <select id="second" formControlName="list_item" data-placeholder="Choose a Country..." class="chosen-select" multiple style="width:350px;" tabindex="4">
+                      <option value=""></option>
+                      <option value="TV">TV</option>
+                      <option value="Fridge">Fridge</option>
+                      <option value="Washing Machine">Washing Machine</option>
+                      <option value="Godej">Godej</option>
+                      <option value="Computer">Computer</option>
+                      <option value="Table">Table</option>
+                      <option value="Chair">Chair</option>
+                      <option value="Gadda">Gadda</option>
+                      <option value="Sofa set">Sofa set</option>
+                    </select>
+                  </div>
+
+                  <button class="btn btn-success pull-right" type="submit" (click)="enquiry_data()">Finish!</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+        <div id="tab-5" class="tab-content">
+          <div class="container">
+            <div class="stepwizard">
+              <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-11" type="button" class="btn btn-success btn-circle">1</a>
+                  <p><small>Name Details</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-22" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                  <p><small>Personal Details</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-33" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                  <p><small>Aadhar Details</small></p>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                  <a href="#step-44" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                  <p><small>Company Details</small></p>
+                </div>
+              </div>
+            </div>
+
+            <form role="form" [formGroup]="movers_Form">
+            <div class="panel panel-primary setup-content" id="step-11">
+              <div class="panel-heading">
+                <h3 class="panel-title">Name Details</h3>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="control-label">First Name</label>
+                  <input maxlength="100" type="text" name="first_name" formControlName="movers_first_name" required="required" class="form-control" placeholder="Enter First Name" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Last Name</label>
+                  <input maxlength="100" type="text" name="last_name" formControlName="movers_last_name" required="required" class="form-control" placeholder="Enter Last Name" />
+                </div>
+                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+              </div>
+            </div>
+
+            <div class="panel panel-primary setup-content" id="step-22">
+              <div class="panel-heading">
+                <h3 class="panel-title">Personal Details</h3>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="control-label">Email</label>
+                  <input type="email" name="email" formControlName="movers_email" required="required" class="form-control"  />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Mobile</label>
+                  <input type="mobile" formControlName="movers_mobile" required="required" class="form-control"  />
+                </div>
+                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+              </div>
+            </div>
+
+            <div class="panel panel-primary setup-content" id="step-33">
+              <div class="panel-heading">
+                <h3 class="panel-title">Aadhar Details</h3>
+              </div>
+
+                <div class="form-group">
+                  <label class="control-label">Aadhar</label>
+                  <input type="text" formControlName="movers_aadhar" required="required" class="form-control"  />
+                </div>
+                <button class="btn btn-primary nextBtn pull-right" type="button" (click)="movers_enquiry_data_aadhar_validate()">Next</button>
+              </div>
+
+
+            <div class="panel panel-primary setup-content" id="step-44">
+              <div class="panel-heading">
+                <h3 class="panel-title">Company Details</h3>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="control-label">Company</label><br>
+                  <input type="movers_company" formControlName="movers_company" name="movers_company" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Address</label><br>
+                  <textarea formControlName="movers_address" name="movers_address" class="form-control" ></textarea>
+                </div>
+                <button class="btn btn-success pull-right" type="submit" (click)="movers_enquiry_data()">Finish!</button>
+              </div>
+            </div>
+          </form>
+          </div>
+          <!--<form [formGroup]="movers_Form">
+          <ul class="form-style-1">
+            <li><label>Full Name <span class="required">*</span></label>
+              <input type="text" name="movers_first_name" formControlName="movers_first_name"  class="field-divided" placeholder="First" />&nbsp;<input type="text" name="movers_last_name" formControlName="movers_last_name" class="field-divided" placeholder="Last" /></li>
+            <li>
+              <label>Email</label>
+              <input type="movers_email" name="movers_email" formControlName="movers_email" class="field-long" />
+            </li>
+            <li>
+              <label>Mobile <span class="required">*</span></label>
+              <input type="movers_mobile" formControlName="movers_mobile" name="movers_mobile" class="field-long" />
+            </li>
+            <li>
+              <label>Aadhar  No:<span class="required">*</span></label>
+              <input type="movers_aadhar" formControlName="movers_aadhar" name="movers_aadhar" class="field-long" />
+            </li>
+            <li>
+              <label>Company Name:<span class="required">*</span></label>
+              <input type="movers_company" formControlName="movers_company" name="movers_company" class="field-long" />
+            </li>
+            <li>
+              <label>Address:<span class="required">*</span></label>
+              <textarea formControlName="movers_address" name="movers_address" class="field-long" ></textarea>
+            </li>
+            <li>
+              <input type="submit" value="Submit"  (click)="movers_enquiry_data()"/>
+            </li>
+          </ul>
+        </form>-->
+        </div>
+        <div id="tab-6" class="tab-content">
+              <div class="send_otp_div">
+                <form [formGroup]="loginForm" class="login_form" (submit)="clickedUser()" >
+                  <div>
+                    <input type="text" id="phone_number" required="10" formControlName="phone_number" class="form-control" maxlength="10" style="width:300px;display: inline " placeholder="Enter Phone Number">
+                    <button class="btn btn-success" style="display: inline;vertical-align: top;" type="submit">Send</button>
+
+                  </div>
+                </form>
+              </div>
+              <div class="otp_form">
+                <form [formGroup]="otpForm" class="otp_form" style="display: none" (submit)="otpVerification()">
+
+                  <input type="text" id="otp"  maxlength="4" class="form-control"  formControlName="otp_text" style="width:300px;display: inline " placeholder="Enter OTP Number">
+                  <button class="btn btn-success"  type="submit" style="vertical-align: top;" >Next</button>
+
+                </form>
+                <form class="resent_otp_form" style="display: none;">
+                  <u><a href="#"  (click)="reSendOTP()" style="color: orangered">Have not received the OTP yet?</a></u>
+                </form>
+              </div>
+        </div>
+      </div>
+
+
+
+
+
+
+<script>
+
+</script>

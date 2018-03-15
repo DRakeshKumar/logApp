@@ -1,0 +1,121 @@
+<app-header></app-header>
+
+<div class="app-body">
+
+  <app-sidebar>  </app-sidebar>
+
+  <main class="main">
+    <ol class="breadcrumb">
+      <!--<li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item"><a routerLink="/dashboard">Admin</a></li>-->
+      <li class="breadcrumb-item active rob">Dashboard</li>
+
+      <!-- Breadcrumb Menu-->
+      <li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group">
+          <!-- <a class="btn" href="#"><i class="icon-speech"></i></a>
+           <a class="btn" href="#"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+           <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>-->
+        </div>
+      </li>
+    </ol>
+      <div class="container-fluid" >
+          <div id="ui-view"></div>
+          <div>
+            <input type="date" id="enquiry_date" (change)="userDateWise()"/>
+          </div>
+          <div class="content-data" style="overflow-x: hidden;">
+
+            <table id="example" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" >
+              <thead class="rob">
+              <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Main Listed Items</th>
+                <th>Settings</th>
+              </tr>
+              </thead>
+              <tbody class="rob">
+              <tr *ngFor="let user of loggedRequestData; let i = index;">
+                <td style="background-color: lightslategrey;color: #FFFFFF">{{i+1}}</td>
+                <td style="background-color: #FFFFFF;color: #000000">{{user.created_date}}</td>
+                <td style="background-color: #FFFFFF;color: #000000">{{ user.first_name }} | {{ user.last_name }}</td>
+                <td style="background-color: #FFFFFF;color: #000000">{{ user.email }}</td>
+                <td style="background-color: #FFFFFF;color: #000000">{{ user.mobile }}</td>
+                <td style="background-color: lightgray;color: #000000">{{ user.from_name }}</td>
+                <td style="background-color: lightgray;color: #000000">{{ user.to_name }}</td>
+                <td style="background-color: lightgray;color: #000000">{{ user.pick_up_date }}</td>
+                <td style="background-color: #FFFFFF;color: #000000">{{ user.list_item }}</td>
+                <td><button type="button" style="color:#0e6498" class="" (click)="openmodal(user)">Edit</button></td>
+               <!-- <td><button type="button" class="btn btn-primary" (click)="openmodal(user)">Edit</button></td>-->
+                <!--<td><button type="button" class="btn btn-primary" (click)="openmodal(user, user_id)">Edit</button></td>-->
+              </tr>
+              </tbody>
+
+            </table>
+
+
+          </div>
+      </div>
+      <div class="modal inmodal rounded-corners "   id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-lg rounded-corners " style="width:50%">
+          <div class="modal-content animated fadeIn rounded-corners " style="background-color: rgb(239, 236, 236);">
+            <div class="rounded-corners" style="background-color: rgb(239, 236, 236); text-align:center;">
+            </div>
+            <div class="panel panel-default">
+              <button type="button" class="close" data-dismiss="modal" (click)="walkInModalClose($event)" >&times;</button>
+              <div class="panel-body" >
+                <form [formGroup]="medicine_editForm" >
+                  <div>Quotation Details</div>
+                  <div>
+                   From: <input type="text" class="form-control"   formControlName="from_number"  [(ngModel)]="userEditData['from_number']"  name="from_number" id="from_number" >
+                  </div>
+                  <div>
+                    To:<input type="text" class="form-control"  readonly formControlName="to_number"  [(ngModel)]="userEditData['to_number']"  name="to_number" id="to_number" >
+                  </div>
+                  <div>
+                   Item Price: <textarea  class="form-control"  formControlName="list_item_details"  [(ngModel)]="userEditData['list_item_details']"  name="list_item_details" id="list_item_details" ></textarea>
+                  </div>
+                  <div>
+                    Logisic Details: <textarea  class="form-control" style="color: orangered" formControlName="logistic_details"  [(ngModel)]="userEditData['logistic_details']"  name="logistic_details" id="logistic_details" ></textarea>
+                  </div>
+                  <button type="button" class="btn btn-md btn-primary " (click)="sendQuoteToUsers(userEditData)">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="route-main-content">
+        <router-outlet></router-outlet>
+      </div>
+  </main>
+
+</div>
+
+<app-footer></app-footer>
+
+
+
+
+
+
+<!--
+
+<div>
+  <h3 >Welcome to hubcontrol Dashboard</h3>
+</div>
+<div>
+  <div style="display: inline"><app-sidebar></app-sidebar></div>
+  <div style="display: inline;"> <router-outlet></router-outlet></div>
+</div>-->
+

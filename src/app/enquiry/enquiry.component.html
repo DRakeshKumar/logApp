@@ -1,0 +1,65 @@
+
+
+<!--border: 2px solid black;-->
+<div id='cssmenu'>
+  <ul class="tabs-menu">
+    <li><img src="../../assets/e-images/melogo.png" style="height:100px"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li class='active'><a routerLink="/home">Home</a></li>
+    <li><a href='#tab-2'>Products</a></li>
+    <li><a href='#tab-3'>Company</a></li>
+    <li><a href='#tab-4'>Contact</a></li>
+    <li><a href='#tab-5'>Register</a></li>
+    <li><a href='#tab-6'>LogIn</a></li>
+  </ul>
+</div>
+<div id="tab-1">
+  <form [formGroup]="enquiry_Form">
+    <ul class="form-style-1">
+      <li><label>Full Name <span class="required">*</span></label>
+        <input type="text" name="first_name" formControlName="first_name"  class="field-divided" placeholder="First" />&nbsp;<input type="text" name="last_name" formControlName="last_name" class="field-divided" placeholder="Last" /></li>
+      <li>
+        <label>Email</label>
+        <input type="email" name="email" formControlName="email" class="field-long" />
+      </li>
+      <li>
+        <label>Mobile <span class="required">*</span></label>
+        <input type="mobile" formControlName="mobile" name="field4" class="field-long" />
+      </li>
+      <li>
+        <label>From<span class="required">*</span></label>
+        <select name="from_name" formControlName="from_name" class="field-select">
+          <option value="Pune">Pune</option>
+          <option value="Bhubaneswar">Bhubaneswar</option>
+          <option value="Kolkatta">Kolkatta</option>
+        </select>
+      </li>
+      <li>
+        <label>To<span class="required">*</span></label>
+        <select name="to_name" formControlName="to_name" class="field-select">
+          <option value="Pune">Pune</option>
+          <option value="Bhubaneswar">Bhubaneswar</option>
+          <option value="Kolkatta">Kolkatta</option>
+        </select>
+      </li>
+
+      <li>
+        <input type="submit" value="Submit"  (click)="enquiry_data()"/>
+      </li>
+    </ul>
+  </form>
+</div>
+
+
+
+
+
+
+

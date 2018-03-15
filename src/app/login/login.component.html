@@ -1,0 +1,30 @@
+
+<!--border: 2px solid black;-->
+<div id="tab-1">
+<div class="send_otp_div">
+  <form [formGroup]="loginForm" class="login_form" (submit)="clickedUser()" >
+    <div>
+      <input type="text" id="phone_number" required="10" formControlName="phone_number" class="form-control" maxlength="10" style="width:300px;display: inline " placeholder="Enter Phone Number">
+      <button class="btn btn-success" style="display: inline;vertical-align: top;" type="submit">Send</button>
+
+    </div>
+  </form>
+</div>
+<div class="otp_form">
+  <form [formGroup]="otpForm" class="otp_form" style="display: none" (submit)="otpVerification()">
+
+    <input type="text" id="otp"  maxlength="4" class="form-control"  formControlName="otp_text" style="width:300px;display: inline " placeholder="Enter OTP Number">
+    <button class="btn btn-success"  type="submit" style="vertical-align: top;" >Next</button>
+
+  </form>
+  <form class="resent_otp_form" style="display: none;">
+    <u><a href="#"  (click)="reSendOTP()" style="color: orangered">Have not received the OTP yet?</a></u>
+  </form>
+</div>
+
+</div>
+
+
+
+
+

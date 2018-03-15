@@ -1,0 +1,11 @@
+.app-header.navbar .nav-item.open .dropdown-menu {display: block;}
+.sidebar .nav-dropdown  .nav-dropdown-items {max-height: 1000px !important;}
+.sidebar .nav-dropdown  .nav-dropdown-items li a {padding-left: 14px;}
+body .sidebar .nav-dropdown {background: rgba(0, 0, 0, 0.2);}
+body .sidebar .nav-dropdown .nav-link.nav-dropdown-toggle::before {-webkit-transform: rotate(-90deg);transform: rotate(-90deg);}
+body .sidebar .nav-dropdown-items li.active  {color: #fff;background: #20a8d8;}
+body #r_div.upload-file {width: 50%;border: dashed 2px #000000;}
+.property-name {}
+.rob{
+  font-family:Roboto
+}

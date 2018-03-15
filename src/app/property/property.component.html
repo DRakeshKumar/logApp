@@ -1,0 +1,57 @@
+
+<app-header></app-header>
+
+<div class="app-body">
+
+  <app-sidebar>  </app-sidebar>
+
+  <main class="main">
+
+
+
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+     <!-- <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item"><a routerLink="/dashboard">Admin</a></li>-->
+      <li class="breadcrumb-item active rob">Property Management</li>
+
+      <!-- Breadcrumb Menu-->
+      <li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group">
+          <!--<a class="btn" href="#"><i class="icon-speech"></i></a>
+          <a class="btn" href="#"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+          <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>-->
+        </div>
+      </li>
+    </ol>
+
+    <div class="container-fluid">
+      <div id="ui-view"></div>
+      <div class="content-data">
+        <div id="r_div" class="upload-file">
+          <form [formGroup]="propertyForm">
+            <div class="form-group">
+            <b class="rob">Properties Upload File:</b>
+            <input type="file"  (change)="fileChangeEventForProperty($event)" required formControlName="property_name" placeholder="Upload file..." />
+              <br>
+            <button type="submit" class="btn btn-primary" (click)="uploadCsvProperty()" [disabled]='check_property' >Upload</button>
+             </div>
+          </form>
+        </div>
+        <div id="r_div" style="border: dashed 2px #000000;">
+          <b class="rob">Download the latest Property file:</b><br>
+          <button type="submit" class="btn btn-primary" (click)="downloadProperty()" ><i class="fa fa-file-excel-o" style="font-size:24px">xls</i></button>
+          <button type="submit" class="btn btn-primary" (click)="downloadPropertyXlsxFormat()" ><i class="fa fa-file-excel-o" style="font-size:24px">xlsx</i></button>
+        </div>
+        <ng4-loading-spinner> </ng4-loading-spinner>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+
+
+
+<app-footer></app-footer>
