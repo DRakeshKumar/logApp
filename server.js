@@ -63,7 +63,7 @@ app.get('*', (req, res) => {
 });
 
 //Set Port
-const port = process.env.PORT || '8080';
+const port = process.env.PORT || '443';
 app.set('port', port);
 
 const server = http.createServer(app);
